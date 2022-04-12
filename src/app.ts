@@ -1,3 +1,28 @@
+// interfaces
+interface IsPerson {
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
+}
+
+const me: IsPerson = {
+  name: "shaun",
+  age: 30,
+  speak(text: string) {
+    console.log(text);
+  },
+  spend(amount: number) {
+    console.log(`I spent`, amount);
+    return amount;
+  },
+};
+const greetPerson = (person: IsPerson) => {
+  console.log("Hello ", person.name);
+};
+// console.log(me);
+greetPerson(me);
+
 import { Invoice } from "./classes/invoice.js";
 
 const invOne = new Invoice("mario", "work on the mario website", 250);
@@ -8,7 +33,7 @@ invoices.push(invOne);
 invoices.push(invTwo);
 // invoices.push({ name: 'shaun' });
 
-console.log(invoices);
+console.log(invoices[1].format());
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 console.log(form.children);
